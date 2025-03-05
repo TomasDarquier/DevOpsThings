@@ -1,3 +1,12 @@
-import * as pulumi from "@pulumi/pulumi";
-import * as aws from "@pulumi/aws";
+import {
+    FmFrontend
+} from "./services/frontend";
 
+function main(){
+    new FmFrontend({
+        Name: "example",
+        Product: "devops-learning"
+    });
+}
+
+main();
