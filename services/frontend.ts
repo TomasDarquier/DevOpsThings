@@ -1,7 +1,6 @@
 import {
     ComponentResource,
     CustomResourceOptions,
-    getStack
 } from "@pulumi/pulumi";
 import {
     FmBucket
@@ -19,7 +18,7 @@ export class FmFrontend extends ComponentResource {
         super("pkg:index:FmFrontend", name, {}, opts);
 
         // frontend source code
-        const source = new FmBucket({
+        new FmBucket({
             Name: args.Name,
             Product: args.Product,
             Public: true
@@ -27,7 +26,7 @@ export class FmFrontend extends ComponentResource {
             parent: this
         });
 
-        const replica = new FmBucket({
+        new FmBucket({
             Name: '${args.Name}-replica',
             Product: args.Product,
         }, {
